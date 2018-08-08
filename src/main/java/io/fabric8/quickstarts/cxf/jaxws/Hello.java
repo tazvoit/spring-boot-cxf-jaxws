@@ -37,4 +37,27 @@ public interface Hello {
                      targetNamespace = "http://service.ws.sample/", 
                      className = "io.fabric8.quickstarts.cxf.jaxws.SayHelloResponse")
     String sayHello(@WebParam(name = "myname", targetNamespace = "") String myname);
+
+
+    @WebResult(name = "return", targetNamespace = "")
+    @RequestWrapper(localName = "sayGoodBye",
+            targetNamespace = "http://service.ws.sample/",
+            className = "io.fabric8.quickstarts.cxf.jaxws.SayHello")
+    @WebMethod(action = "urn:SayGoodBye")
+    @ResponseWrapper(localName = "sayGoodByeResponse",
+            targetNamespace = "http://service.ws.sample/",
+            className = "io.fabric8.quickstarts.cxf.jaxws.SayGoodByeResponse")
+    String sayGoodBye(@WebParam(name = "myname", targetNamespace = "") String myname);
+
+
+    @WebResult(name = "return", targetNamespace = "")
+    @RequestWrapper(localName = "whatTimeIsIt",
+            targetNamespace = "http://service.ws.sample/",
+            className = "io.fabric8.quickstarts.cxf.jaxws.SayHello")
+    @WebMethod(action = "urn:WhatTimeIsIt")
+    @ResponseWrapper(localName = "whatTimeIsItResponse",
+            targetNamespace = "http://service.ws.sample/",
+            className = "io.fabric8.quickstarts.cxf.jaxws.WhatTimeIsItResponse")
+    String whatTimeIsIt();
+
 }

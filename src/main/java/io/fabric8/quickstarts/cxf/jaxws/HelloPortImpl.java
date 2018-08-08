@@ -18,6 +18,7 @@
  */
 package io.fabric8.quickstarts.cxf.jaxws;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 @javax.jws.WebService(serviceName = "HelloService", portName = "HelloPort",
@@ -31,6 +32,26 @@ public class HelloPortImpl implements Hello {
         LOG.info("Executing operation sayHello" + myname);
         try {
             return "Hello, Welcome to CXF Spring boot " + myname + "!!!";
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public String sayGoodBye(java.lang.String myname){
+        LOG.info("Executing operation sayGoodBye" + myname);
+        try {
+            return "GoodBye, My friend ... " + myname + "!!!";
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public String whatTimeIsIt(){
+        LOG.info("Executing operation whatTimeIsIt" + new Date());
+        try {
+            return "the exact time is... " + new Date() + "!!!";
         } catch (java.lang.Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
